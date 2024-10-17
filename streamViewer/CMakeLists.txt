@@ -40,8 +40,8 @@ qt_add_executable(streamViewer
     ${PROJECT_SOURCES}
     videowidget.h
     videowidget.cpp
-
-
+    playbackwidget.h
+    playbackwidget.cpp
 )
 
 # Set target properties
