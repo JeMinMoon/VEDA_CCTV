@@ -18,7 +18,11 @@ raspberrypi에서 진행.
 ```
 sudo apt-get install libgstreamer1.0-dev libgstrtspserver-1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
-
+### 2. Build
+```
+$ cd server/
+$ make
+```
 ## Qt 개발을 위한 환경 설정
 
 ### 1. Qt 설치
