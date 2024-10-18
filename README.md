@@ -3,14 +3,16 @@
 Raspberry Pi를 이용한 cctv와 서버 개발. 서버에서 송출하는 실시간 영상을 수신하는 Qt기반 클라이언트 개발.
 ### 기능
 
-### 기술 스택
-Pi camera  
+### 기술 스택  
 gstreamer  
 Qt  
-C++
+C/C++
 
+### 하드웨어
+raspberrypi 5  
+pi CameraModule v1
 
-## 설치 방법
+## Qt 개발을 위한 환경 설정
 
 ### 1. Qt 설치
 
