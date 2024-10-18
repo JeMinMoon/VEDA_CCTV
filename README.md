@@ -3,14 +3,27 @@
 Raspberry Pi를 이용한 cctv와 서버 개발. 서버에서 송출하는 실시간 영상을 수신하는 Qt기반 클라이언트 개발.
 ### 기능
 
-### 기술 스택
-Pi camera  
+### 기술 스택  
 gstreamer  
 Qt  
-C++
+C/C++
 
+### 하드웨어
+raspberrypi 5  
+pi CameraModule v1
 
-## 설치 방법
+## 서버 구동을 위한 환경 설정
+raspberrypi에서 진행.
+### 1. GStreamer 설치
+```
+sudo apt-get install libgstreamer1.0-dev libgstrtspserver-1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
+```
+### 2. Build
+```
+$ cd server/
+$ make
+```
+## Qt 개발을 위한 환경 설정
 
 ### 1. Qt 설치
 
