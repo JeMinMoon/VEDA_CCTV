@@ -38,10 +38,12 @@ set(PROJECT_SOURCES
 qt_add_executable(streamViewer
     MANUAL_FINALIZATION
     ${PROJECT_SOURCES}
-    videowidget.h
-    videowidget.cpp
+    livewidget.h
+    livewidget.cpp
     playbackwidget.h
     playbackwidget.cpp
+    gstthread.h
+    gstthread.cpp
 )
 
 # Set target properties

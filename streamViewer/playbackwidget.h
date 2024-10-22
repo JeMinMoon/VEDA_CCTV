@@ -5,7 +5,7 @@
 #include <QMediaPlayer>
 #include <QVideoWidget>
 #include <QSlider>
-#include <qlabel.h>
+#include <QLabel>
 
 class PlaybackWidget : public QWidget
 {

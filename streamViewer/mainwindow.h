@@ -7,6 +7,10 @@
 #include <QPushButton>
 #include <QSlider>
 #include <QLabel>
+#include <QLineEdit>
+
+#include "livewidget.h"
+#include "playbackwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,10 +18,12 @@ QT_END_NAMESPACE
 
 // Define the Stream structure
 struct Stream {
-    QMediaPlayer* player;
-    QVideoWidget* videoWidget;
-    QPushButton* playButton;
-    QPushButton* stopButton;
+    LiveWidget* liveWidget;
+    PlaybackWidget* playbackWidget;
+    QPushButton* playLiveButton;
+    QPushButton* stopLiveButton;
+    QLineEdit* lineEdit;
+
     QSlider* slider;
     QLabel* timeLabel;
     bool isSliderBeingMoved;
@@ -29,7 +35,6 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
 
 private slots:
     void playStream(int index);
@@ -39,7 +44,7 @@ private:
     Ui::MainWindow *ui;
     Stream streams[4];
     QString rtspUrls[4] = {
-        "rtsp://210.99.70.120:1935/live/cctv001.stream",
+        "rtsp://192.168.0.109:8554/camera",
         "rtsp://210.99.70.120:1935/live/cctv002.stream",
         "rtsp://210.99.70.120:1935/live/cctv003.stream",
         "rtsp://210.99.70.120:1935/live/cctv004.stream"
