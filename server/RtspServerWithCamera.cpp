@@ -50,8 +50,8 @@ int main(int argc, char *argv[]) {
     // 카메라 소스를 사용하는 파이프라인 설정
     gst_rtsp_media_factory_set_launch(factory,
         "( libcamerasrc camera-name=/base/axi/pcie@120000/rp1/i2c@88000/ov5647@36 \
-    ! video/x-raw,width=640,height=480,framerate=40/1,format=RGBx ! queue ! videoconvert ! x264enc speed-preset=ultrafast tune=zerolatency \
-    ! rtph264pay name=pay0 pt=96 )");
+    ! video/x-raw,width=640,height=480,framerate=40/1,format=RGBx ! queue ! videoconvert ! x264enc speed-preset=ultrafast tune=fastdecode \
+    ! video/x-h264,profile=high-4:4:4 ! rtph264pay name=pay0 pt=96 )");
     
     gst_rtsp_media_factory_set_shared(factory, TRUE);
 
