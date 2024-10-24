@@ -10,6 +10,7 @@ class GstThread : public QThread {
 
 public:
     GstThread(WId windowId, QString rtspUrl);
+    void cleanup();
     void run() override;
     void stop();
     void SetWindowId(WId);
@@ -20,7 +21,8 @@ public:
 private:
     WId windowId;
     QString rtspUrl;
-    GstElement *pipeline, *source, *demux, *parse, *filter, *decodebin, *sink;
+    GstElement *pipeline, *source, *depay, *parse1, *parse2, *decoder, *displaysink, *filesink,
+        *tee, *queue_display, *queue_record, *encoder, *mux, *videoconvert, *timestamper;
 };
 
 
