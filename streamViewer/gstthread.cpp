@@ -1,5 +1,9 @@
 #include <gst/video/videooverlay.h>
 #include <gst/base/gstbaseparse.h>
+#include <QApplication>
+#include <QDir>
+#include <QDateTime>
+#include <string>
 #include "gstthread.h"
 
 static void on_pad_added(GstElement *src, GstPad *pad, gpointer data) {
@@ -54,7 +58,14 @@ GstThread::GstThread(WId windowId, QString rtspUrl)
     // Configure source
     g_object_set(G_OBJECT(source), "location", rtspUrl.toUtf8().constData(), NULL);
     g_object_set(G_OBJECT(source), "protocols", 0x00000004, NULL);  // Force TCP (4)
-    g_object_set(G_OBJECT(filesink), "location", "C:/Users/change11/Desktop/video/Output.mp4", NULL);
+
+    QDir videosDir(QDir::cleanPath(QApplication::applicationDirPath() + "/Videos"));
+    if (!videosDir.exists()) {
+        videosDir.mkpath("."); // Create the directory
+    }
+    QString timestamp = QDateTime::currentDateTime().toString("yyyyMMdd_HHmmss");
+    QString outputPath = videosDir.filePath("Record_" + timestamp + ".mp4");
+    g_object_set(G_OBJECT(filesink), "location", outputPath.toUtf8().constData(), NULL);
 
     // Configure muxer for faster finalization
     g_object_set(G_OBJECT(mux),

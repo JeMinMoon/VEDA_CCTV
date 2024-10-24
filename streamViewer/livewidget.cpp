@@ -10,7 +10,7 @@ LiveWidget::LiveWidget(QWidget *parent) : QWidget(parent) {
 
     window = new QLabel(this);
     window->setScaledContents(true);
-    // window->setPixmap(QPixmap(":/image/standby_screen.png"));
+    // window->setPixmap(QPixmap(":/image/image.png"));
     window->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
     layout->addWidget(window);
